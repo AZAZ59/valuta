@@ -1,29 +1,21 @@
 package org.apache.myfaces.blank;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Scanner;
 import java.util.TreeMap;
 
-import javax.swing.JApplet;
 import javax.swing.JFrame;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.xy.XYDataset;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
+import org.jfree.data.time.Day;
+import org.jfree.data.time.TimePeriodValue;
+import org.jfree.data.time.TimePeriodValues;
+import org.jfree.data.time.TimePeriodValuesCollection;
+
 
 
 public class starter {
@@ -39,28 +31,30 @@ public class starter {
 		// TODO Auto-generated method stub
 			
 		   TreeMap<Date, ArrayList<Kurs>> storage = new TreeMap<>();
-
-		  
 		  
 		  System.out.println(storage);
 
-		  XYSeries ser= new XYSeries("AAA");
+		  TimePeriodValues tpv = new TimePeriodValues("BBB");
+	  
 		  int i=0;
 		  for(Date dat:storage.keySet()){
-			  float nom=storage.get(dat).get(0).close;
-			  ser.add(i++, nom);
-			  //System.out.println(ser.getX(ser.getItemCount()-1));
-			  //System.out.println(ser.getY(ser.getItemCount()-1));
-			  
+			  float nom=storage.get(dat).get(11).close;
+			  tpv.add(new TimePeriodValue(new Day(dat), nom));
 		  }
-		  		  	
-		    XYDataset xyDataset = new XYSeriesCollection(ser);
-			JFreeChart chart = ChartFactory.createXYLineChart("test", "x", "y",
-					xyDataset, PlotOrientation.VERTICAL, true, true, true);
+	  		  	
+//			JFreeChart chart = ChartFactory.createXYLineChart("test", "x", "y",
+//					xyDataset, PlotOrientation.VERTICAL, true, true, true);
 			//JFreeChart chr = ChartFactory.c
+
+		  
+
+		  	TimePeriodValuesCollection tpvc = new TimePeriodValuesCollection(tpv);		  
+			JFreeChart chr = ChartFactory.createTimeSeriesChart("EUR/RUR", "days", "eur", tpvc, true,true,true);
+					
+
 			JFrame frame = new JFrame("QQQ");
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			frame.getContentPane().add(new ChartPanel(chart));
+			frame.getContentPane().add(new ChartPanel(chr));
 			frame.setSize(400, 300);
 			frame.show();
 
