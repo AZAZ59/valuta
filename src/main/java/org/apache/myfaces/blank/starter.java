@@ -30,7 +30,7 @@ public class starter {
 			ParseException, ClassNotFoundException {
 		// TODO Auto-generated method stub
 			
-		   TreeMap<Date, ArrayList<Kurs>> storage = new TreeMap<>();
+		   TreeMap<Date, ArrayList<Kurs>> storage =serialize_apdater.Update();
 		  
 		  System.out.println(storage);
 
@@ -38,16 +38,10 @@ public class starter {
 	  
 		  int i=0;
 		  for(Date dat:storage.keySet()){
-			  float nom=storage.get(dat).get(11).close;
+			  float nom=storage.get(dat).get(31).close; //11 -eur 31 - usd
 			  tpv.add(new TimePeriodValue(new Day(dat), nom));
 		  }
 	  		  	
-//			JFreeChart chart = ChartFactory.createXYLineChart("test", "x", "y",
-//					xyDataset, PlotOrientation.VERTICAL, true, true, true);
-			//JFreeChart chr = ChartFactory.c
-
-		  
-
 		  	TimePeriodValuesCollection tpvc = new TimePeriodValuesCollection(tpv);		  
 			JFreeChart chr = ChartFactory.createTimeSeriesChart("EUR/RUR", "days", "eur", tpvc, true,true,true);
 					

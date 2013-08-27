@@ -20,10 +20,9 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.jfree.chart.urls.URLUtilities;
-import org.apache.http.client.utils.URIBuilder;
 
 public class serialize_apdater {
-	static final String asd = "http://export.rbc.ru/free/cb.0/free.fcgi?"
+	static final String str1 = "http://export.rbc.ru/free/cb.0/free.fcgi?"
 			+ "period=DAILY&"
 			+ "tickers=NULL&"
 			+ "d1=20&"
@@ -32,14 +31,16 @@ public class serialize_apdater {
 			+ "d2=26&"
 			+ "m2=08&"
 			+ "y2=2013"
-			+ "&lastdays=20"
+			
+			//static final String str2 = 
+					+"&lastdays=1"
 			+ "&separator=%3B&"
 			+ "data_format=BROWSER&"
 			+ "header=0";
 	
 	
 
-	private void Update() throws IOException, ClassNotFoundException, ParseException {
+public static TreeMap<Date, ArrayList<Kurs>> Update() throws IOException, ClassNotFoundException, ParseException {
 		// TODO Auto-generated method stub
 		TreeMap<Date, ArrayList<Kurs>> storage = new TreeMap<>();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -51,9 +52,14 @@ public class serialize_apdater {
 		ois.close();
 		
 		storage = ser_store.storage;
-		Calendar cal = Calendar.getInstance();
 		
-		URL con = new URL(asd);
+		if(storage!=null) return storage;
+		
+		
+		Calendar cal = Calendar.getInstance();
+		//String date="d1="+d1+"&m1="+m1+"&y1="+y1+"&d2="+d2+"&m2="+m2+"&y2="+y2;
+		
+		URL con = new URL(str1);
 		
 		
 		HttpURLConnection http = (HttpURLConnection) con.openConnection();
@@ -82,5 +88,7 @@ public class serialize_apdater {
 		oos.writeObject(ser_store);
 		oos.flush();
 		oos.close();
+		
+		return storage;
 	}
 }
