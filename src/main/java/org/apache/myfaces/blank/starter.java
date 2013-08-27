@@ -14,6 +14,16 @@ import java.util.Date;
 import java.util.Scanner;
 import java.util.TreeMap;
 
+import javax.swing.JFrame;
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.xy.XYDataset;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
+
 
 public class starter {
 
@@ -35,10 +45,32 @@ public class starter {
 		  ser_store=(serialize_storage)ois.readObject();
 		  ois.close();
 		  storage=ser_store.storage;
-
-		  //System.out.println(storage);
-
 		  
+		  System.out.println(storage);
+
+		  XYSeries ser= new XYSeries("AAA");
+		  int i=0;
+		  for(Date dat:storage.keySet()){
+			  float nom=storage.get(dat).get(0).close;
+			  ser.add(i++, nom);
+			  //System.out.println(ser.getX(ser.getItemCount()-1));
+			  //System.out.println(ser.getY(ser.getItemCount()-1));
+			  
+		  }
+		  
+		    XYDataset xyDataset = new XYSeriesCollection(ser);
+			JFreeChart chart = ChartFactory.createXYLineChart("test", "x", "y",
+					xyDataset, PlotOrientation.VERTICAL, true, true, true);
+			//JFreeChart chr = ChartFactory.c
+			JFrame frame = new JFrame("QQQ");
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			frame.getContentPane().add(new ChartPanel(chart));
+			frame.setSize(400, 300);
+			frame.show();
+
+		  while(frame.isResizable()){
+			  ;
+		  }
 
 		  System.exit(0);
 
