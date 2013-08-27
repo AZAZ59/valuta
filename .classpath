@@ -17,14 +17,20 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+	<classpathentry kind="lib" path="C:/Users/AZAZ/.m2/repository/org/jfree/jcommon/1.0.17/jcommon-1.0.17.jar"/>
+	<classpathentry kind="lib" path="C:/develop/LIB/Java_LIB/jfree/jfreechart-1.0.14.jar" sourcepath="C:/develop/LIB/Java_LIB/jfree/source">
 		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="javadoc_location" value="jar:file:/C:/develop/LIB/Java_LIB/jfree/jfreechart-1.0.14-javadocs.zip!/jfreechart-1.0.14-javadocs"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>

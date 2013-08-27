@@ -1,6 +1,8 @@
 package org.apache.myfaces.blank;
 
-public class Kurs {
+import java.io.Serializable;
+
+public class Kurs implements Serializable {
 	String ticker;
 	float close;
 	int nominal;
