@@ -38,7 +38,7 @@ public class starter {
 	  
 		  int i=0;
 		  for(Date dat:storage.keySet()){
-			  float nom=storage.get(dat).get(31).close; //11 -eur 31 - usd
+			  float nom=storage.get(dat).get(5).close; //11 -eur 31 - usd
 			  tpv.add(new TimePeriodValue(new Day(dat), nom));
 		  }
 	  		  	
