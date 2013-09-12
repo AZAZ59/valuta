@@ -30,13 +30,13 @@ public class starter {
 			ParseException, ClassNotFoundException {
 		// TODO Auto-generated method stub
 			
-		   TreeMap<Date, ArrayList<Kurs>> storage =serialize_apdater.Update();
+		  TreeMap<Date, ArrayList<Kurs>> storage =serialize_apdater.Update();
 		  
-		  System.out.println(storage);
+		//  System.out.println(storage);
 
 		  TimePeriodValues tpv = new TimePeriodValues("BBB");
 	  
-		  int i=0;
+		  //int i=0;
 		  for(Date dat:storage.keySet()){
 			  float nom=storage.get(dat).get(5).close; //11 -eur 31 - usd
 			  tpv.add(new TimePeriodValue(new Day(dat), nom));

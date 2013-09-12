@@ -28,9 +28,9 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/AZAZ/.m2/repository/org/jfree/jcommon/1.0.17/jcommon-1.0.17.jar"/>
-	<classpathentry kind="lib" path="C:/develop/LIB/Java_LIB/jfree/jfreechart-1.0.14.jar" sourcepath="C:/develop/LIB/Java_LIB/jfree/source">
+	<classpathentry kind="lib" path="Lib/jfreechart-1.0.14.jar">
 		<attributes>
-			<attribute name="javadoc_location" value="jar:file:/C:/develop/LIB/Java_LIB/jfree/jfreechart-1.0.14-javadocs.zip!/jfreechart-1.0.14-javadocs"/>
+			<attribute name="javadoc_location" value="jar:platform:/resource/valuta/Lib/jfreechart-1.0.14-javadocs.zip!/jfreechart-1.0.14-javadocs/"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
