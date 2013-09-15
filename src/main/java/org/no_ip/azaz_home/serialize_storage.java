@@ -1,4 +1,4 @@
-package org.apache.myfaces.blank;
+package org.no_ip.azaz_home;
 
 import java.io.Serializable;
 import java.util.ArrayList;
